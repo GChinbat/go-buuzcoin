@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/buuzcoin/node/db"
+	"github.com/buuzcoin/go-buuzcoin/cli/db"
 )
 
 var server = http.Server{}

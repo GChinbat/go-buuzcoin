@@ -2,8 +2,8 @@ package chain
 
 import (
 	"github.com/bmatsuo/lmdb-go/lmdb"
-	"github.com/buuzcoin/blockchain/trie"
-	"github.com/buuzcoin/node/db"
+	"github.com/buuzcoin/go-buuzcoin/blockchain/trie"
+	"github.com/buuzcoin/go-buuzcoin/cli/db"
 )
 
 // InitNullState writes null trie states to local storage

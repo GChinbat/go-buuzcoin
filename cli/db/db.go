@@ -2,7 +2,7 @@ package db
 
 import (
 	"github.com/bmatsuo/lmdb-go/lmdb"
-	"github.com/buuzcoin/blockchain/trie"
+	"github.com/buuzcoin/go-buuzcoin/blockchain/trie"
 	"github.com/pkg/errors"
 )
 

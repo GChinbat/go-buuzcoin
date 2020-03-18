@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"crypto/ed25519"
 
-	"github.com/buuzcoin/blockchain"
-	"github.com/buuzcoin/network"
+	"github.com/buuzcoin/go-buuzcoin/blockchain"
+	"github.com/buuzcoin/go-buuzcoin/network"
 	"golang.org/x/crypto/sha3"
 )
 

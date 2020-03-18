@@ -4,7 +4,7 @@ import (
 	"crypto/ed25519"
 	"crypto/rand"
 
-	"github.com/buuzcoin/network"
+	"github.com/buuzcoin/go-buuzcoin/network"
 )
 
 // GenerateWallet generates new wallet

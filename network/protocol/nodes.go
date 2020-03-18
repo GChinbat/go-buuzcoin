@@ -5,7 +5,7 @@ import (
 	"crypto/ed25519"
 	"encoding/binary"
 
-	"github.com/buuzcoin/network"
+	"github.com/buuzcoin/go-buuzcoin/network"
 	"golang.org/x/crypto/sha3"
 )
 

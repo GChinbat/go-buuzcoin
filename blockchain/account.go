@@ -3,7 +3,7 @@ package blockchain
 import (
 	"encoding/hex"
 
-	"github.com/buuzcoin/blockchain/trie"
+	"github.com/buuzcoin/go-buuzcoin/blockchain/trie"
 	"github.com/golang/protobuf/proto"
 	"github.com/pkg/errors"
 )

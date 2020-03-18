@@ -6,7 +6,7 @@ import (
 	"encoding/hex"
 	"testing"
 
-	"github.com/buuzcoin/network"
+	"github.com/buuzcoin/go-buuzcoin/network"
 	"golang.org/x/crypto/sha3"
 )
 

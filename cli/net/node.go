@@ -8,9 +8,9 @@ import (
 	"os"
 	"sync"
 
-	"github.com/buuzcoin/network/consensus"
-	"github.com/buuzcoin/network/protocol"
-	"github.com/buuzcoin/node/db"
+	"github.com/buuzcoin/go-buuzcoin/cli/db"
+	"github.com/buuzcoin/go-buuzcoin/network/consensus"
+	"github.com/buuzcoin/go-buuzcoin/network/protocol"
 	"golang.org/x/crypto/sha3"
 )
 

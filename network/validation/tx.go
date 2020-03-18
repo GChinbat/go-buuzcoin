@@ -5,8 +5,8 @@ import (
 	"crypto/ed25519"
 	"errors"
 
-	"github.com/buuzcoin/blockchain"
-	"github.com/buuzcoin/network"
+	"github.com/buuzcoin/go-buuzcoin/blockchain"
+	"github.com/buuzcoin/go-buuzcoin/network"
 )
 
 // This file decribes rules for valid transaction in Buuzcoin network

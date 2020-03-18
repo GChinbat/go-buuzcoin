@@ -2,7 +2,7 @@ package db
 
 import (
 	"github.com/bmatsuo/lmdb-go/lmdb"
-	"github.com/buuzcoin/blockchain"
+	"github.com/buuzcoin/go-buuzcoin/blockchain"
 	"github.com/golang/protobuf/proto"
 	"github.com/pkg/errors"
 )

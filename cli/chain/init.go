@@ -6,11 +6,11 @@ import (
 	"log"
 
 	"github.com/bmatsuo/lmdb-go/lmdb"
-	"github.com/buuzcoin/blockchain"
-	"github.com/buuzcoin/blockchain/trie"
-	"github.com/buuzcoin/network/consensus"
-	"github.com/buuzcoin/network/validation"
-	"github.com/buuzcoin/node/db"
+	"github.com/buuzcoin/go-buuzcoin/blockchain"
+	"github.com/buuzcoin/go-buuzcoin/blockchain/trie"
+	"github.com/buuzcoin/go-buuzcoin/cli/db"
+	"github.com/buuzcoin/go-buuzcoin/network/consensus"
+	"github.com/buuzcoin/go-buuzcoin/network/validation"
 	"github.com/golang/protobuf/proto"
 	"github.com/pkg/errors"
 )

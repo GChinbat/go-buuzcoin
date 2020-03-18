@@ -1,9 +1,9 @@
 package validation
 
 import (
-	"github.com/buuzcoin/blockchain"
-	"github.com/buuzcoin/blockchain/trie"
-	"github.com/buuzcoin/network"
+	"github.com/buuzcoin/go-buuzcoin/blockchain"
+	"github.com/buuzcoin/go-buuzcoin/blockchain/trie"
+	"github.com/buuzcoin/go-buuzcoin/network"
 )
 
 // applyTxInMemory evaluates transaction in memory and validates transaction's nonce

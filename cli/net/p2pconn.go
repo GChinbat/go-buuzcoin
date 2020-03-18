@@ -1,7 +1,7 @@
 package net
 
 import (
-	"github.com/buuzcoin/network/protocol"
+	"github.com/buuzcoin/go-buuzcoin/network/protocol"
 )
 
 // CurrentProtocolVersion is current version of protocol sent to remote

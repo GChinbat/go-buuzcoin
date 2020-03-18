@@ -1,6 +1,6 @@
 package consensus
 
-import "github.com/buuzcoin/blockchain"
+import "github.com/buuzcoin/go-buuzcoin/blockchain"
 
 /*
 	After block data in validated, it needs to be checked whether if block

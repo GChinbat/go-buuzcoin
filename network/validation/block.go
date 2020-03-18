@@ -6,8 +6,8 @@ import (
 	"errors"
 	"time"
 
-	"github.com/buuzcoin/blockchain"
-	"github.com/buuzcoin/network"
+	"github.com/buuzcoin/go-buuzcoin/blockchain"
+	"github.com/buuzcoin/go-buuzcoin/network"
 )
 
 // This file decribes how block should be checked in Buuzcoin network

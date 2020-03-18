@@ -1,6 +1,6 @@
 package network
 
-import "github.com/buuzcoin/blockchain"
+import "github.com/buuzcoin/go-buuzcoin/blockchain"
 
 // This file decribes rules for transaction in Buuzcoin network
 

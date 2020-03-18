@@ -13,7 +13,7 @@ import (
 	"time"
 
 	"github.com/bmatsuo/lmdb-go/lmdb"
-	"github.com/buuzcoin/network"
+	"github.com/buuzcoin/go-buuzcoin/network"
 	"github.com/pkg/errors"
 )
 

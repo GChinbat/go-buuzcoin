@@ -2,7 +2,7 @@ package db
 
 import (
 	"github.com/bmatsuo/lmdb-go/lmdb"
-	"github.com/buuzcoin/blockchain/trie"
+	"github.com/buuzcoin/go-buuzcoin/blockchain/trie"
 )
 
 // SaveTrie saves updated trie up to the root and returns hash of the root

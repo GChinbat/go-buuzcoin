@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/buuzcoin/node/chain"
+	"github.com/buuzcoin/go-buuzcoin/cli/chain"
 )
 
 // GetBlockchain retrieves blockchain data from BlockchainDispatcher.
