@@ -1,6 +1,8 @@
 package validation
 
 import (
+	"bytes"
+
 	"github.com/buuzcoin/go-buuzcoin/blockchain"
 	"github.com/buuzcoin/go-buuzcoin/blockchain/trie"
 	"github.com/buuzcoin/go-buuzcoin/network"
@@ -91,6 +93,10 @@ func ApplyBlockInMemory(prevStateRoot []byte, block blockchain.Block, transactio
 	updatedChild, err := beneficiaryAccountState.Save(block.Beneficiary, stateRoot, retrieve)
 	if err != nil {
 		return nil, false, err
+	}
+
+	if bytes.Compare(stateRoot.CalculateHash(), block.StateMerkleRoot) != 0 {
+		return nil, false, ErrInvalidMerkleRoot
 	}
 
 	updatedChildren = append(updatedChildren, updatedChild)
