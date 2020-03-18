@@ -31,7 +31,7 @@ func (netNode *NetworkNode) SaveCertificate(certPEM, keyPEM []byte) error {
 }
 
 // GenerateCertificate creates new certificate and private key
-func (netNode *NetworkNode) GenerateCertificate(pubKey, privKey []byte) (*tls.Certificate, error) {
+func (netNode *NetworkNode) GenerateCertificate(pubKey ed25519.PublicKey, privKey ed25519.PrivateKey) (*tls.Certificate, error) {
 	notBefore := time.Now()
 	notAfter := notBefore.Add(365 * 24 * time.Hour)
 	serialNumberLimit := new(big.Int).Lsh(big.NewInt(1), 128)
