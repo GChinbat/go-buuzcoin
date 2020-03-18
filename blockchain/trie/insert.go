@@ -18,7 +18,7 @@ func (node *MerkleTrieNode) putNewChild(subkey string, value []byte) *MerkleTrie
 	newLeaf.Parent = node
 	newLeaf.ParentKey = hexChar(subkey[0])
 
-	return node
+	return newLeaf
 }
 
 // Put adds new or modifies existing node with specific key and setting its value.
