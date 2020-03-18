@@ -1,0 +1,59 @@
+syntax = "proto3";
+package protocol;
+
+// This file specifies messages for connection initialization sequence
+
+message SealedNodeRecord {
+  /*
+    nodeRecord contains node data in binary format specified below:
+    SeqID - 4 bytes, sequential ID of NodeRecord
+    NodeID - 20 bytes, address of network node
+    Network - 1 byte, allowed values are 0x04 and 0x06, for IPv4 and IPv6 accordingly
+    Port - 2 bytes, little-endian integer
+    IPAddress - 4 or 16 bytes, depends on value of `net`
+  */
+  bytes nodeRecord = 1; // Maximum length is 60 bytes
+  bytes signature = 2; // Signature of SHA3(nodeRecord)
+}
+
+// Both sides send own HelloMessage with network and chain initial data
+// HelloMessage is connection initial message
+message HelloMessage {
+  uint32 protoVersion = 1;
+  uint32 networkID = 2;
+
+  bytes   genesisHash = 3;
+  bytes   lastBlockHash = 4;
+  uint64  lastBlockIndex = 5;
+
+  SealedNodeRecord  sealedNodeRecord = 7;
+}
+
+// Ping is request for node record data
+message Ping {
+  // Tag is 32 bytes length data: xor(sha3(PONG_SENDER_ID), PING_SENDER_ID)
+  bytes   tag = 1;
+  uint64  nonce = 2;
+}
+
+message Pong {
+  bytes             tag = 1;
+  SealedNodeRecord  nodeRecord = 2;
+
+  string  recipientAddress = 3;
+
+  // Signature is calculated over tag||nodeRecord||recipientAddress
+  bytes   signature = 5;
+}
+
+// FindNode is request for Neighbours message, it
+// should contain up to 16 nodes with nearest target
+message FindNode {
+  // Target is 32 byte length hash of target node
+  bytes target = 1;
+}
+
+message Neighbours {
+  uint32 total = 1;
+  repeated SealedNodeRecord nodes = 2;
+}

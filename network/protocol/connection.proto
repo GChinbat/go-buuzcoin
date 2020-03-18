@@ -1,0 +1,51 @@
+syntax = "proto3";
+package protocol;
+
+/*
+  This file specifies messages for main stage of connection
+  All messages are prepended by length of data + message type: 4 + 1 bytes.
+*/
+
+// GetBlockHeaders requires node to send requested block headers
+message GetBlockHeaders {
+  // Requesting node may specify either blockHash or stackBlockIndex
+  // If blockHash included, responsing node must return single block header
+
+  uint64 startBlockIndex = 1;
+  bytes blockHash = 2;
+  uint64 maxBlocks = 3;
+}
+// BlockHeaders is response to GetBlockHeaders message. It may be empty if no blocks found
+message BlockHeaders {
+  uint64 blockCount = 1;
+  repeated bytes blockHeaders = 2;
+}
+
+// NewBlockHashes message it propagated to nodes if new block have appeared in network
+message NewBlockHashes {
+  repeated bytes blockHashes = 1;
+}
+
+// GetTransactions is request for transactions data
+message GetTransactions {
+  repeated bytes txHashes = 1;
+}
+// Transactions is message containing transaction data
+message Transactions {
+  repeated bytes transactions = 1;
+}
+
+// NewBlock is notification that new block appeared in the network
+message NewBlock {
+  bytes blockHeader = 1;
+  repeated bytes txHashList = 2;
+}
+
+// GetNodeData is request for data from state trie
+message GetNodeData {
+  repeated bytes nodeHashes = 1;
+}
+// NodeData is message containing node data in format: nodeHash||nodeValue
+message NodeData {
+  repeated bytes nodes = 1;
+}
