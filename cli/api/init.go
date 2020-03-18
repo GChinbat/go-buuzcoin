@@ -30,6 +30,7 @@ func InitAPI(port int, storage *db.LocalStorage) chan error {
 	// TODO: register API listeners
 	http.HandleFunc("/api/v1/blockchain", GetBlockchain)
 	http.HandleFunc("/api/v1/block", GetBlockData)
+	http.HandleFunc("/api/v1/account", GetAccountState)
 
 	resultChan := make(chan error)
 	go func() {
