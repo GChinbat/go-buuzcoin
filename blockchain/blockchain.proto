@@ -1,0 +1,61 @@
+syntax = "proto3";
+package blockchain;
+
+message Blockchain {
+  bytes lastBlockHash = 1;
+  bytes stateMerkleRoot = 2;
+  uint64 lastBlockIndex = 3;
+}
+
+message AccountState {
+  uint64 balance = 1;
+  // OutTxCounter is used for checking tx nonce, for valid outgoing transaction
+  // tx.nonce == account.outTxCounter + 1, if transaction is accepted counter is increased
+  uint64 outTxCounter = 2;
+
+  // Reserved for further use (32 bytes)
+  bytes reserved = 3;
+  // Reserved for further use (32 bytes)
+  bytes reserved2 = 4;
+}
+
+message TX {
+  uint32  version = 1;
+  bytes   from = 2;
+  uint64  nonce = 3;
+  bytes   to = 4;
+  uint64  amount = 5;
+  uint64  fee = 6;
+  bytes   optionalData = 7;
+  uint64  gasLimit = 8;
+  uint64  gasPrice = 9;
+
+  bytes hash = 10;
+  // Signature is calculated over hash of fields above, it must identify sender
+  bytes signature = 11;
+}
+
+message Block {
+  uint32  version = 1;
+  uint64  index = 2;
+  int64   timestamp = 3;
+  bytes   prevBlockHash = 4;
+
+  bytes txMerkleRoot = 5;
+  bytes stateMerkleRoot = 6;
+  // Reserved for further use (32 bytes)
+  bytes reserved = 7;
+
+  bytes beneficiary = 8;
+  bytes additionalData = 9;
+  // ProofData is binary representation of blockchain's consensus algorithm data
+  bytes proofData = 10;
+
+  // Signature is calculated over block header's hash,
+  // public key should match beneficiary address
+  bytes signature = 11;
+  
+  repeated bytes txHashes = 12;
+  // Transactions list is set for full-blocks and is optional for light-blocks
+  repeated bytes transactions = 13;
+}
