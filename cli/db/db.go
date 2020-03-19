@@ -10,10 +10,11 @@ import (
 type LocalStorage struct {
 	Env *lmdb.Env
 
-	Node       lmdb.DBI
-	State      lmdb.DBI
-	Wallets    lmdb.DBI
-	Blockchain lmdb.DBI
+	Node         lmdb.DBI
+	State        lmdb.DBI
+	Wallets      lmdb.DBI
+	Blockchain   lmdb.DBI
+	Transactions lmdb.DBI
 }
 
 // RetrieveFn creates trie.RetrieveFn function using dbi provided
@@ -55,11 +56,14 @@ func InitDB(path string) (*LocalStorage, error) {
 	}
 
 	if err = env.Update(func(txn *lmdb.Txn) error {
+		if db.Transactions, err = txn.CreateDBI("transactions"); err != nil {
+			return errors.Wrap(err, "InitDB: creating DBI 'transactions' failed")
+		}
 		if db.Blockchain, err = txn.CreateDBI("blockchain"); err != nil {
 			return errors.Wrap(err, "InitDB: creating DBI 'blockchain' failed")
 		}
 		if db.Wallets, err = txn.CreateDBI("wallets"); err != nil {
-			return err
+			return errors.Wrap(err, "InitDB: creating DBI 'wallets' failed")
 		}
 		if db.State, err = txn.CreateDBI("state"); err != nil {
 			return errors.Wrap(err, "InitDB: creating DBI 'state' failed")
