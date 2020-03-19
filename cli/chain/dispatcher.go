@@ -123,7 +123,7 @@ func (dispatcher *blockchainDispatcher) ApplyBlock(block blockchain.Block, trans
 		extendedChain := new(blockchain.Blockchain)
 		extendedChain.LastBlockHash = block.CalculateHash()
 		extendedChain.LastBlockIndex = block.Index
-		extendedChain.StateMerkleRoot = dispatcher.stateTrieRoot.CalculateHash()
+		extendedChain.StateMerkleRoot = block.StateMerkleRoot
 
 		blockchainData, err := proto.Marshal(extendedChain)
 		if err != nil {
