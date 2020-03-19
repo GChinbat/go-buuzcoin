@@ -143,5 +143,15 @@ func (dispatcher *blockchainDispatcher) ApplyBlock(block blockchain.Block, trans
 	}
 
 	log.Printf("Applied block %s", hex.EncodeToString(block.CalculateHash()))
-	return dispatcher.localStorage.SaveBlock(block)
+	if err := dispatcher.localStorage.SaveBlock(block); err != nil {
+		errors.Wrap(err, "applyBlock: failed to save block data")
+	}
+
+	for _, tx := range transactions {
+		if err := dispatcher.localStorage.SaveTx(tx); err != nil {
+			errors.Wrap(err, "applyBlock: failed to save transaction data")
+		}
+	}
+
+	return nil
 }
